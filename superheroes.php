@@ -47,7 +47,7 @@ $superheroes = [
       "id" => 8,
       "name" => "T'challa",
       "alias" => "Black Panther",
-      "biography" => "T’Challa is the king of the secretive and highly advanced African nation of Wakanda - as well as the powerful warrior known as the Black Panther.",
+      "biography" => "T'Challa is the king of the secretive and highly advanced African nation of Wakanda - as well as the powerful warrior known as the Black Panther.",
   ],
   [
       "id" => 9,
@@ -65,8 +65,33 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php
+if ($_POST["superName"] == null){
+    // Display all superheroes when no search value is provided
+    echo "<ul>";
+    foreach ($superheroes as $superhero) {
+        echo "<li>" . htmlspecialchars($superhero['alias']) . "</li>";
+    }
+    echo "</ul>";
+} else {
+    $searchVal = filter_input(INPUT_POST, "superName", FILTER_SANITIZE_STRING);
+    $found = false; // Track if a match is found
+
+    foreach ($superheroes as $superhero) {
+        if (in_array($searchVal, $superhero)) {
+            $values = array_values($superhero);
+            ?>
+            <h3><?= htmlspecialchars(strtoupper($values[2])); ?></h3>
+            <h4><?= htmlspecialchars("A.K.A " . strtoupper($values[1])); ?></h4>
+            <p><?= htmlspecialchars($values[3]); ?></p>
+            <?php
+            $found = true;
+            break; // Stop loop if match is found
+        }
+    }
+    if ($found==false){
+        echo "<p style='color: red;'>SUPERHERO NOT FOUND</p>";
+    }
+}
+?>
+

@@ -1,0 +1,53 @@
+.container {
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn {
+    border: none;
+    background-color: #c72523;
+    color: white;
+    width: 10%;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.heading {
+    display: flex;
+    background-color: #4d8ab5;
+    color: white;
+    font-weight: bold;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultHeading {
+    font-weight: bold;
+    color: #1e2639;
+}
+
+.hintText {
+    font-weight: bold;
+}
+
+div.search {
+    margin: 0 auto;
+    width: 75%;
+    align-content: center;
+}
+
+input {
+    width: 85%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px #e7e7e7;
+}
+
+hr {
+    color: black;
+}
