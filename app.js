@@ -22,7 +22,7 @@ window.onload = function () {
         .then(data => {
             // Update the result element with the response
             result.innerHTML = data;
-            alert(data)
+            //alert(data)
         })
         .catch(error => {
             console.error('Error:', error);
